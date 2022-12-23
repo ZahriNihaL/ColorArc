@@ -1,0 +1,3 @@
+w 1418px
+h 1853
+bg color #F9DEDE

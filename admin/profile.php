@@ -26,7 +26,7 @@ include("includes/db.php");
         <div class="col-lg-10 wrapper">
             <div class="card custom-card-2">
                 <div class="card-body p-3 d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0 fw-bold">SETTINGS</h5>
+                    <h5 class="mb-0 fw-bold">PROFILE</h5>
                 </div>
             </div>
 
@@ -52,66 +52,78 @@ include("includes/db.php");
 
             <?php
 
-            $sql = "select * from tbl_company where id='1'";
+            $sql = "select * from tbl_profile where id='1'";
             $run = mysqli_query($con, $sql);
             $row = mysqli_fetch_array($run);
 
-            $company_time = $row["company_time"];
-            $place = $row["place"];
-            $email1 = $row["email1"];
-            $phone_number1 = $row["phone_number1"];
-            $phone_number2 = $row["phone_number2"];
-            $link = $row["link"];
-            $facebook = $row["facebook"];
-            $instagram = $row["instagram"];
+            $img = $row["img"];
+            $first_name = $row["first_name"];
+            $last_name = $row["last_name"];
+            $gender = $row["gender"];
+            $phone_number = $row["phone_number"];
+            $about = $row["about"];
+            $address = $row["address"];
+            $city = $row["city"];
+            $pincode = $row["pincode"];
+            $email = $row["email"];
+            $password = $row["password"];
+           
            
             ?>
 
             <div class="card custom-card-2 mt-2">
                 <div class="card-body p-4">
                     <form method="post" action="functions/functions.php" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Company Time :</label>
-                            <input type="text" class="form-control" value="<?php echo $company_time ?>" name="company_name" id="title" placeholder="Enter Company Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Place :</label>
-                            <input type="text" class="form-control" name="place" value="<?php echo $place ?>" id="title" placeholder="Enter Company Place" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">e-mail 1 :</label>
-                            <input type="text" class="form-control" name="email1" value="<?php echo $email1 ?>" id="title" placeholder="Enter Primary Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Phone_Number1 :</label>
-                            <input type="text" class="form-control" name="phone_number1" value="<?php echo $phone_number1 ?>" id="title" placeholder="Enter Primary PhoneNumber" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Phone_Number2 :</label>
-                            <input type="text" class="form-control" name="phone_number2" id="title" value="<?php echo $phone_number2 ?>" placeholder="Enter Secondary PhoneNumber" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="link">Website :</label>
-                            <input type="url" class="form-control" id="url" name="link" value="<?php echo $link ?>" placeholder="Enter Website Link" required>
-                        </div>
 
-                        <label class="form-label" for="title">Facebook :</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon3">https://facebook.com/</span>
-                            <input type="text" class="form-control" id="basic-url" name="facebook" value="<?php echo $facebook ?>" aria-describedby="basic-addon3">
+                    <div class="mb-3">
+                            <label class="form-label" for="image">Image :</label>
+                            <input type="file" class="form-control" name="img" id="image" required>
                         </div>
-
-                        <label class="form-label" for="title">Instagram :</label>5
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon3">https://instagram.com/</span>
-                            <input type="text" class="form-control" id="basic-url" name="instagram" value="<?php echo $instagram ?>" aria-describedby="basic-addon3">
+                        <div class="mb-3">
+                            <label class="form-label" for="title">First Name :</label>
+                            <input type="text" class="form-control" value="<?php echo $first_name ?>" name="first_name" id="title" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Last Name :</label>
+                            <input type="text" class="form-control" name="last_name" value="<?php echo $last_name ?>" id="title" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Gender :</label>
+                            <input type="text" class="form-control" name="gender" value="<?php echo $gender ?>" id="title" placeholder="Enter Gender" required>
+                        </div> 
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Phone_Number :</label>
+                            <input type="text" class="form-control" name="phone_number" value="<?php echo $phone_number ?>" id="title" placeholder="Enter PhoneNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">About :</label>
+                            <input type="text" class="form-control" name="about" value="<?php echo $about ?>" id="title" placeholder="Enter About You" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Address :</label>
+                            <input type="text" class="form-control" name="address" value="<?php echo $address ?>" id="title" placeholder="Enter Your Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">City :</label>
+                            <input type="text" class="form-control" name="city" value="<?php echo $city ?>" id="title" placeholder="Enter Your City" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Pincode :</label>
+                            <input type="text" class="form-control" name="pincode" value="<?php echo $pincode ?>" id="title" placeholder="Enter Your Pincode" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">e-mail  :</label>
+                            <input type="text" class="form-control" name="email" value="<?php echo $email ?>" id="title" placeholder="Enter Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Password :</label>
+                            <input type="text" class="form-control" name="password" value="<?php echo $password ?>" id="title" placeholder="Enter The Password" required>
                         </div>
 
                         
 
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success float-end" name="update_settings" style="background-color: #460a38;">UPDATE</button>
-
+                            <button type="submit" class="btn btn-success float-end" name="update_profile" style="background-color: #460a38;">UPDATE</button>
                         </div>
                     </form>
                 </div>

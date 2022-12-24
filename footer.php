@@ -1,3 +1,11 @@
+<?php
+
+include("admin/includes/db.php");
+
+?>
+
+
+
 <section class="footer">
         <div class="container">
             <div class="row">
@@ -38,18 +46,24 @@
 
                 <div class="col-lg-6">
                     <div class="social-icons  d-flex">
+                    <?php
+
+                        $sql = "select * from tbl_company where id='1'";
+                        $run = mysqli_query($con, $sql);
+                        $row = mysqli_fetch_array($run);
+
+                        $facebook = $row["facebook"];
+                        $instagram = $row["instagram"];
+                       
+                        ?>
+
                         <div class="facebook me-2">
-                            <a href=""><i class="fa fa-facebook-f"></i></a>
+                            <a href="<?php echo $facebook ?>"><i class="fa fa-facebook-f"></i></a>
                         </div>
                         <div class="instagram me-2">
-                            <a href=""><i class="fa fa-instagram "></i></a>
+                            <a href="<?php echo $instagram ?>"><i class="fa fa-instagram "></i></a>
                         </div>
-                        <div class="twitter me-2">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                        </div>
-                        <div class="twitter me-2">
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
+                        
                     </div>
                 </div>
 

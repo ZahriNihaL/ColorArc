@@ -122,7 +122,7 @@ if (isset($_POST["add_home"])) {
   $img2 = $_FILES["img2"]["name"];
   $tmp_name = $_FILES["img2"]["tmp_name"];
 
-  $to = "../admin/assets/images/home/" . $img2;
+  $to = "../assets/images/home/" . $img2;
 
   move_uploaded_file($tmp_name, $to);
 
@@ -754,7 +754,7 @@ if (isset($_POST["remove_item"])) {
 
 if (isset($_POST["update_settings"])) {
 
-  $company_name = $_POST["company_name"];
+  $company_time = $_POST["company_time"];
   $place = $_POST["place"];
   $email1 = $_POST["email1"];
   $phone_number1 = $_POST["phone_number1"];
@@ -762,10 +762,8 @@ if (isset($_POST["update_settings"])) {
   $link = $_POST["link"];
   $facebook = $_POST["facebook"];
   $instagram = $_POST["instagram"];
-  $watsapp = $_POST["watsapp"];
  
-
-  $sql = "update tbl_company set company_name='$company_name' , place='$place' , email1='$email1' , phone_number1='$phone_number1' , phone_number2='$phone_number2' , link='$link' , facebook='$facebook' , instagram='$instagram' , watsapp='$watsapp' where id='1'";
+  $sql = "update tbl_company set company_time='$company_time' , place='$place' , email1='$email1' , phone_number1='$phone_number1' , phone_number2='$phone_number2' , link='$link' , facebook='$facebook' , instagram='$instagram'  where id='1'";
   $run = mysqli_query($con, $sql);
 
   if ($run == TRUE) {
@@ -773,32 +771,36 @@ if (isset($_POST["update_settings"])) {
   } else {
     header("Location: ../settings.php?error=failes to update settings!");
   }
+}
 
+
+
+if (isset($_POST["update_profile"])) {
+
+  $img = $_POST["img"];
+  $first_name =  $_POST["first_name"];
+  $last_name =  $_POST["last_name"];
+  $gender =  $_POST["gender"];
+  $phone_number =  $_POST["phone_number"];
+  $about =  $_POST["about"];
+  $address =  $_POST["address"];
+  $city =  $_POST["city"];
+  $pincode =  $_POST["pincode"];
+  $email =  $_POST["email"];
+  $password =  $_POST["password"];
+
+ 
+  $sql = "update tbl_profile set img='$img' , first_name='$first_name' , last_name='$last_name' ,  gender='$gender' , phone_number='$phone_number' , about='$about' , address='$address' , city='$city' , pincode='$pincode'  email='$email' , password='$password'   where id='1'";
+  $run = mysqli_query($con, $sql);
+
+  if ($run == TRUE) {
+    header("Location: ../settings.php?success=settings updated successfully");
+  } else {
+    header("Location: ../settings.php?error=failes to update settings!");
   }
+}
 
-  if (isset($_POST["update_settings"])) {
 
-    $company_name = $_POST["company_name"];
-    $place = $_POST["place"];
-    $email1 = $_POST["email1"];
-    $phone_number1 = $_POST["phone_number1"];
-    $phone_number2 = $_POST["phone_number2"];
-    $link = $_POST["link"];
-    $facebook = $_POST["facebook"];
-    $instagram = $_POST["instagram"];
-    $watsapp = $_POST["watsapp"];
-  
-  
-    $sql = "update tbl_settings set company_name='$company_name' , place='$place' , email1='$email1' , phone_number1='$phone_number1' , phone_number2='$phone_number2' , link='$link' , facebook='$facebook' , instagram='$instagram' , watsapp='$watsapp' where id='1'";
-    $run = mysqli_query($con, $sql);
-  
-    if ($run == TRUE) {
-      header("Location: ../settings.php?success=settings updated successfully");
-    } else {
-      header("Location: ../settings.php?error=failes to update settings!");
-    }
-  
-    }
   
   
   

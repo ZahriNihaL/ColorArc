@@ -3,7 +3,9 @@
 include("admin/includes/db.php");
 
 ?>
+
 <!doctype html>
+
 <html lang="en">
 
 <head>
@@ -92,6 +94,7 @@ include("admin/includes/db.php");
               $img2 = $row["img2"];
             
             ?>
+
                 <div class="col-lg-4">
                     <img src="admin/assets/images/home/<?php echo $img ?>" alt="home image" class="img-fluid">
                 </div>
@@ -384,17 +387,16 @@ include("admin/includes/db.php");
                                     $name = $row["name"];
                                     $designation =$row["designation"]; 
                                     $explanation =$row["explanation"]; 
-                                    $img = $row["img"];
-                                    
-                                
-                                
+                                    $img = $row["img"];                                                         
+                                                                   
                             ?>
+                            
                                 <div class="col-lg-6 testimonial-contents">
                                     <div class="reviews d-flex justify-content-center flex-wrap">
                                         <img src="admin/assets/images/customer/<?php echo $img ?>" alt="testimonial image" class="img-fluid">
                                         <div class="client-words">
                                             <p class="para-color ms-4 mt-3"><i
-                                                    class="fa fa-quote-left para-color me-3"></i><?php echo $explanation ?><i
+                                            class="fa fa-quote-left para-color me-3"></i><?php echo $explanation ?><i
                                                     class="fa fa-quote-right para-color ms-3"></i> </p>
                                         </div>
                                         <div class="text-center">
@@ -407,9 +409,7 @@ include("admin/includes/db.php");
                                 <?php } ?>
                             </div>
                         </div>
-                      
-                                                
-
+                                                                 
                     </div>
 
                 </div>

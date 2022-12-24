@@ -1,3 +1,8 @@
+<?php
+
+include("admin/includes/db.php");
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -68,13 +73,30 @@
 
                 <div class="col-lg-6">
                     <div class="row location-details">
+
+                    <?php
+
+                        $sql = "select * from tbl_company where id='1'";
+                        $run = mysqli_query($con, $sql);
+                        $row = mysqli_fetch_array($run);
+
+                        $company_time = $row["company_time"];
+                        $place = $row["place"];
+                        $email1 = $row["email1"];
+                        $phone_number1 = $row["phone_number1"];
+                        $phone_number2 = $row["phone_number2"];
+                        $link = $row["link"];
+                        $facebook = $row["facebook"];
+                        $instagram = $row["instagram"];
+
+                    ?>
                         <div class="col-lg-6">
                             <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-pin-map-fill mb-2 " viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
                                 <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
                               </svg>
                             <h5 class="head-color">Our Location</h5>
-                            <p>Color Arc, Puthanathani,  <br> Kozhikode(District), PIN: 676552</p>
+                            <p><?php echo $place ?></p>
 
 
                             <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-clock mb-2 mt-4" viewBox="0 0 16 16">
@@ -82,7 +104,7 @@
                                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
                               </svg>
                             <h5 class="head-color">Opening Hours</h5>
-                            <p>Monday to Saturday: 9:30 am - 7:30 pm</p>
+                            <p><?php echo $company_time ?></p>
                         </div>
                         <div class="col-lg-6">
                             <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-telephone mb-2 call-svg" viewBox="0 0 16 16">
@@ -90,17 +112,17 @@
                               </svg>
                             <h5 class="head-color">Contact Us</h5>
                             <div class="call-email">
-                                Email : <a href=""> colorarc@gmail.com</a><br>
-                                Phone : <a href="tel:+4733378901" > +4733378901</a><br>
+                                Email : <a href=""> <?php echo $email1 ?></a><br>
+                                Phone : <a href="tel:<?php echo $phone_number1 ?>" > <?php echo $phone_number2 ?></a><br>
                             </div>
 
                             <div class="flex socialmedia mt-3">
-                                <a href="#"><i class="fa fa-facebook-f "></i></a>
-                                <a href="#"><i class="fa fa-instagram ms-2"></i></a>
-                                <a href="#"><i class="fa fa-linkedin ms-2"></i></a>
-                                <a href="#"><i class="fa fa-twitter ms-2"></i></a>
+                                <a href="<?php echo $facebook ?>"><i class="fa fa-facebook-f "></i></a>
+                                <a href="<?php echo $instagram ?>"><i class="fa fa-instagram ms-2"></i></a>
+                                
                             </div>
                         </div>
+                    
                     </div>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.380377371716!2d76.00089661531682!3d10.934612559242643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7b5f458cc2aff%3A0xde6ab0b4bf862d98!2sColorarc!5e0!3m2!1sen!2sin!4v1671623904868!5m2!1sen!2sin" class="mt-3" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 

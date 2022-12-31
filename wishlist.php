@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("admin/includes/db.php");
 
 ?>
@@ -20,13 +20,14 @@ include("admin/includes/db.php");
     <!-- -------------------------Fixed navbars start-------------------------------- -->
 
 
+
+
         <!-- -------------------------Navbar start-------------------------------- -->
 
         <?php include('contents/nav.php') ?>
         
-            <!-- -------------------------Navbar end-------------------------------- -->
+        <!-- -------------------------Navbar end-------------------------------- -->
     
-
 
 
 
@@ -62,16 +63,25 @@ include("admin/includes/db.php");
                 <div class="wishlist-items">
                     <div class="row">
                         <?php
-                
-                            $sql = "select * from tbl_wishlist";
+
+                            $user = $_SESSION["colorarc_user_id"];
+                            $sql = "select * from tbl_wishlist where user='$user'";
                             $run = mysqli_query($con, $sql);
                             while($row = mysqli_fetch_array($run)){
 
                             $id = $row["id"];
-                            $img = $row["img"];            
-                            $product_name = $row["product_name"];
-                            $price = $row["price"]; 
-                            $explanation = $row["explanation"]; 
+                            $pid = $row["pid"];
+                            $user = $row["user"];
+
+                            $pro_sql = "select * from tbl_products where id='$pid'";
+                            $pro_run = mysqli_query($con, $pro_sql);
+                            $pro_row = mysqli_fetch_assoc($pro_run);
+
+
+                            $img = $pro_row["img"];            
+                            $product_name = $pro_row["product_name"];
+                            $price = $pro_row["price"]; 
+                            $explanation = $pro_row["explanation"]; 
                             
                             
                         ?>
@@ -86,16 +96,13 @@ include("admin/includes/db.php");
                         <div class="col-lg-3 mt-2 mt-md-5">
                             <h4 class="head-color fw-bold"><?php echo $price ?> </h4>
                         </div>
-                        <div class="col-lg-2">
-
-                            <a href="cart.php"><button class="btn-sm button-style mt-2 mt-md-5">Add to Cart</button></a>
-                            
+                        <div class="col-lg-2 product">
+                            <input type="hidden" class="pid" value="<?php echo $id ?>">
+                            <button class="cart-btn cart_btn button-style mt-2 mt-md-5 add-cart">Add to Cart</button>
                         </div>
                         <hr class="mt-4 mb-4 mt-md-3 mb-md-3">
                         <?php } ?>
                     </div>
-                    
-                    
                 </div>
         </div>
     </section>
@@ -103,22 +110,11 @@ include("admin/includes/db.php");
     <!-- -------------------------testimonial end-------------------------------- -->
 
 
-
-
-
-
     <!-- -------------------------footer start-------------------------------- -->
 
     <?php include('footer.php') ?>
 
     <!-- -------------------------footer end-------------------------------- -->
-
-
-
-
-
-
-
 
 
     <!-- Optional JavaScript; choose one of the two! -->

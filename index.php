@@ -284,7 +284,7 @@ include("admin/includes/db.php");
                 </div>
 
                 <div class="text-center">
-                    <a href="products.html"><button class="btn-sm button-style mt-5 fw-bold">Load more</button></a>
+                    <a href="products.php"><button class="btn-sm button-style mt-5 fw-bold">Load more</button></a>
                 </div>
 
 

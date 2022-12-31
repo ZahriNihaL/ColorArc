@@ -24,7 +24,7 @@ if (isset($_POST["login"])) {
     header("Location: ../login.php?error=Invalid credential");
   } else {
     $_SESSION["loggedin"] = true; 
-    header("Location: ../index.php"); 
+    header("Location: ../indexx.php"); 
   }
 }
 
@@ -775,7 +775,9 @@ if (isset($_POST["update_settings"])) {
 
 
 
-if (isset($_POST["update_profile"])) {
+
+if (isset($_POST["add_profile"])) {
+
 
   $img = $_POST["img"];
   $first_name =  $_POST["first_name"];
@@ -789,6 +791,47 @@ if (isset($_POST["update_profile"])) {
   $email =  $_POST["email"];
   $password =  $_POST["password"];
 
+
+  $img = $_FILES["img"]["name"];
+  $tmp_name = $_FILES["img"]["tmp_name"];
+
+  $to = "../assets/images/profile/" . $img;
+
+  move_uploaded_file($tmp_name, $to);
+
+  $sql = "insert into tbl_profile(img,first_name,last_name,gender,phone_number,about,address,city,pincode,email,password)  values( '$img' , '$first_name' , '$last_name' ,  '$gender' , '$phone_number' , '$about' , '$address' , '$city' ,'$pincode'  '$email' , '$password')";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../cart.php?success=cart added successfully");
+  } else {
+    header("Location: ../cart.php?error=failed to add cart!");
+  }
+}
+
+if (isset($_POST["delete_profile"])) {
+  $id = $_POST["id"];
+  $sql = "delete from tbl_cart where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../cart.php?success=cart deleted successfully");
+  } else {
+    header("Location: ../cart.php?error=failed to delete cart!");
+  }
+}
+
+if (isset($_POST["update_profile"])) {
+
+  $img = $_POST["img"];
+  $first_name =  $_POST["first_name"];
+  $last_name =  $_POST["last_name"];
+  $gender =  $_POST["gender"];
+  $phone_number =  $_POST["phone_number"];
+  $about =  $_POST["about"];
+  $address =  $_POST["address"];
+  $city =  $_POST["city"];
+  $pincode =  $_POST["pincode"];
+  $email =  $_POST["email"];
+  $password =  $_POST["password"];
  
   $sql = "update tbl_profile set img='$img' , first_name='$first_name' , last_name='$last_name' ,  gender='$gender' , phone_number='$phone_number' , about='$about' , address='$address' , city='$city' , pincode='$pincode'  email='$email' , password='$password'   where id='1'";
   $run = mysqli_query($con, $sql);
@@ -800,9 +843,211 @@ if (isset($_POST["update_profile"])) {
   }
 }
 
+if (isset($_POST["add_products"])) {
+
+  $product_name = $_POST["product_name"];
+  $explanation = $_POST["explanation"];
+  $price = $_POST["price"];
+  $total = $_POST["total"];
+  $rating = $_POST["rating"];
+
+  $img = $_FILES["img"]["name"];
+  $tmp_name = $_FILES["img"]["tmp_name"];
+
+  $to = "../assets/images/products/" . $img;
+
+  move_uploaded_file($tmp_name, $to);
+
+  $sql = "insert into tbl_products(product_name,explanation,img,price,total,rating) values('$product_name','$explanation','$img','$price','$total','$rating')";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../products.php?success=products added successfully");
+  } else {
+    header("Location: ../products.php?error=failed to add products!");
+  }
+}
+
+if (isset($_POST["delete_products"])) {
+  $id = $_POST["id"];
+  $sql = "delete from tbl_products where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../products.php?success=products deleted successfully");
+  } else {
+    header("Location: ../products.php?error=failed to delete products!");
+  }
+}
+ 
+if (isset($_POST["update_products"])) {
+
+  $id = $_POST["id"];
+  $product_name = $_POST["product_name"];
+  $explanation = $_POST["explanation"];
+  $price = $_POST["price"];
+  $total = $_POST["total"];
+  $rating = $_POST["rating"];
+
+
+  $img = "";
+  if ($_FILES['img']['size'] == 0) {
+    $img = $_POST["old_img"];
+  } else {
+
+    $img = $_FILES["img"]["name"];
+    $tmp_name = $_FILES["img"]["tmp_name"];
+
+    $to = "../assets/images/products/" . $img;
+
+    move_uploaded_file($tmp_name, $to);
+  }
+
+  $sql = "update tbl_products set product_name='$product_name', explanation='$explanation',img='$img',price='$price',total='$total',rating='$rating' where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../products.php?success=products updated successfully");
+  } else {
+    header("Location: ../products.php?error=failes to update products!");
+  }
+}
+
+
+if (isset($_POST["add_service"])) {
+
+  $name = $_POST["name"];
+  
+
+  $img = $_FILES["img"]["name"];
+  $tmp_name = $_FILES["img"]["tmp_name"];
+
+  $to = "../assets/images/service/" . $img;
+
+  move_uploaded_file($tmp_name, $to);
+
+  $sql = "insert into tbl_service(name,img) values('$name','$img')";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../service.php?success=service added successfully");
+  } else {
+    header("Location: ../service.php?error=failed to add service!");
+  }
+}
+
+if (isset($_POST["delete_service"])) {
+  $id = $_POST["id"];
+  $sql = "delete from tbl_service where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../service.php?success=service deleted successfully");
+  } else {
+    header("Location: ..service.php?error=failed to delete service!");
+  }
+}
+ 
+if (isset($_POST["update_service"])) {
+
+  $id = $_POST["id"];
+  $name = $_POST["name"];
+  $price = $_POST["price"];
+  
+
+  $img = "";
+  if ($_FILES['img']['size'] == 0) {
+    $img = $_POST["old_img"];
+  } else {
+
+    $img = $_FILES["img"]["name"];
+    $tmp_name = $_FILES["img"]["tmp_name"];
+
+    $to = "../assets/images/service/" . $img;
+
+    move_uploaded_file($tmp_name, $to);
+  }
+
+  $sql = "update tbl_service set name='$name',img='$img' where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../service.php?success=service updated successfully");
+  } else {
+    header("Location: ../service.php?error=failes to update service!");
+  }
+}
+
+
+
+
+
+if (isset($_POST["add_product"])) {
+
+  $product_name = $_POST["product_name"];
+  $explanation = $_POST["explanation"];
+  $price = $_POST["price"];
+  $total = $_POST["total"];
+  $rating = $_POST["rating"];
+
+  $img = $_FILES["img"]["name"];
+  $tmp_name = $_FILES["img"]["tmp_name"];
+
+  $to = "../assets/images/product/" . $img;
+
+  move_uploaded_file($tmp_name, $to);
+
+  $sql = "insert into tbl_product(product_name,explanation,img,price,total,rating) values('$product_name','$explanation','$img','$price','$total','$rating')";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../product.php?success=product added successfully");
+  } else {
+    header("Location: ../product.php?error=failed to add product!");
+  }
+}
+
+if (isset($_POST["delete_product"])) {
+  $id = $_POST["id"];
+  $sql = "delete from tbl_product where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../product.php?success=product deleted successfully");
+  } else {
+    header("Location: ../product.php?error=failed to delete product!");
+  }
+}
+ 
+if (isset($_POST["update_product"])) {
+
+  $id = $_POST["id"];
+  $product_name = $_POST["product_name"];
+  $explanation = $_POST["explanation"];
+  $price = $_POST["price"];
+  $total = $_POST["total"];
+  $rating = $_POST["rating"];
+
+
+  $img = "";
+  if ($_FILES['img']['size'] == 0) {
+    $img = $_POST["old_img"];
+  } else {
+
+    $img = $_FILES["img"]["name"];
+    $tmp_name = $_FILES["img"]["tmp_name"];
+
+    $to = "../assets/images/product/" . $img;
+
+    move_uploaded_file($tmp_name, $to);
+  }
+
+  $sql = "update tbl_product set product_name='$product_name', explanation='$explanation',img='$img',price='$price',total='$total',rating='$rating' where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run == TRUE) {
+    header("Location: ../product.php?success=product updated successfully");
+  } else {
+    header("Location: ../product.php?error=failes to update product!");
+  }
+}
+
+
+
 
   
-  
+
   
 
 

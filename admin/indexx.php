@@ -9,11 +9,12 @@ include("includes/db.php");
 
 <head>
 
-    <?php
+<?php
 
-    include("style.php");
+include("style.php");
 
-    ?>
+?>
+
     <title>Dashboard</title> 
 
 </head>

@@ -5,6 +5,8 @@ if (!isset($_SESSION["loggedin"])) {
     header("Location:login.php");
 }
 
+include("includes/db.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +25,7 @@ if (!isset($_SESSION["loggedin"])) {
 </head>
 
 <body>
+    
     <div class="row min-vh-100 g-0">
 
         <?php include("content/navbar.php") ?>
@@ -31,7 +34,7 @@ if (!isset($_SESSION["loggedin"])) {
 
             <div class="card custom-card-2">
                 <div class="card-body p-3 d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0 fw-bold"> ADD PRODUCTS</h5>
+                    <h5 class="mb-0 fw-bold">UPDATE PRODUCTS</h5>
                 </div>
             </div>
 
@@ -44,7 +47,6 @@ if (!isset($_SESSION["loggedin"])) {
                 echo $error;
                 ?>
               </div>
-
               <?php
               }else if(isset($_GET["success"])){
               ?>
@@ -55,10 +57,30 @@ if (!isset($_SESSION["loggedin"])) {
                 ?>
               </div>
               <?php } ?>
-            <div class=""></div>
-            <div class="card custom-card-2 mt-2">
+
+              <?php
+              
+              $id = $_POST["id"];
+              $sql = "select * from tbl_products where id='$id'";
+              $run = mysqli_query($con,$sql);
+              $row = mysqli_fetch_array($run);
+              
+              
+              $product_name = $row["product_name"];
+              $explanation =$row["explanation"]; 
+              $img = $row["img"];
+              $price = $row["price"];
+              $total = $row["total"];
+              $rating = $row["rating"];
+                            
+            
+              
+              ?>
+
+            <div class="card custom-card mt-2">
                 <div class="card-body p-4">
-                    <form method="post" action="functions/functions.php" enctype="multipart/form-data">
+                <form method="post" action="functions/functions.php" enctype="multipart/form-data">
+
                         <div class="mb-3">
                             <label class="form-label" for="title">Product Name :</label>
                             <input type="text" class="form-control" name="product_name" id="title" placeholder="Enter Name" required>
@@ -83,11 +105,13 @@ if (!isset($_SESSION["loggedin"])) {
                             <label class="form-label" for="title">Rating :</label>
                             <input type="text" class="form-control" name="rating" id="title" placeholder="Enter Any Description" required>
                         </div>
-                        
+                                                
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success float-end" name="add_product" style="background-color:#e9b819;">SUBMIT</button>
+                            <input type="hidden" name="old_img" value="<?php echo $img ?>">
+                            <input type="hidden" name="id" value="<?php echo $id ?>">
+                            <button type="submit" class="btn btn-success float-end" name="update_products" style="background-color: #e9b819;">SUBMIT</button>
                         </div>
-                    </form>
+                    </form>           
                 </div>
             </div>
         </div>

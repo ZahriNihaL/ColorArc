@@ -7,7 +7,6 @@
 
 include("includes/db.php");
 
-
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +20,7 @@ include("style.php");
 
 ?>
 
-
   <title>Dashboard</title>
-
 
 </head>
 
@@ -35,8 +32,8 @@ include("style.php");
     <div class="col-lg-10 wrapper">
         <div class="card custom-card-2">
           <div class="card-body p-3 d-flex align-items-center justify-content-between">
-            <h5 class="mb-0 fw-bold">SERVICES</h5>
-            <a href="add_services.php" class="btn btn-success" style="background-color: #460a38;">Add Services</a>
+            <h5 class="mb-0 fw-bold">PRODUCTS</h5>
+            <a href="add_products.php" class="btn btn-success" style="background-color: #460a38;">Add Products</a>
           </div>
         </div>
 
@@ -66,37 +63,42 @@ include("style.php");
 
             <?php
             
-            $sql = "select * from tbl_services";
+            $sql = "select * from tbl_products";
             $run = mysqli_query($con, $sql);
             while($row = mysqli_fetch_array($run)){
 
 
                 $id = $row["id"];
-                $services =$row["services"]; 
+                $product_name = $row["product_name"];
+                $explanation =$row["explanation"]; 
                 $img = $row["img"];
-                
-      
-               
+                $price = $row["price"];
+                $total = $row["total"];
+                $rating = $row["rating"];
+                              
               
             ?>
-              <div class="col-md-3 services">
+              <div class="col-md-3 cart">
                 <div class="card">
                   <div class="card-body p-2 text-center">
-                    <img src="/admin/assets/images/services/<?php echo $img ?>" class="img-fluid">
-                    <h4 class="fw-bold mt-2"><?php echo $services ?></h4>
-                    
-
-
+                    <img src="assets/images/products/<?php echo $img ?>" class="img-fluid">
+                    <h4 class="fw-bold mt-2"><?php echo $product_name ?></h4>
+                    <div class="mt-2"><?php echo $explanation ?></div><br>
+                    <div class="mt-2"><?php echo $price ?></div>
+                    <div class="mt-2"><?php echo $total ?></div>
+                    <div class="mt-2"><?php echo $rating ?></div>
+                   
+                                       
                     <div class="d-flex justify-content-center">
 
-                      <form method="post" action="edit_services.php">
+                      <form method="post" action="edit_products.php">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
-                        <button type="submit" name="update_services" class="btn btn-primary me-2">Update</button>
+                        <button type="submit" name="update_products" class="btn btn-primary me-2">Update</button>
                       </form>
 
                       <form method="post" action="functions/functions.php">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
-                        <button type="submit" name="delete_services" class="btn btn-danger">Delete</button>
+                        <button type="submit" name="delete_products" class="btn btn-danger">Delete</button>
                       </form>
   
                     </div>

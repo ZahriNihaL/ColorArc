@@ -1,9 +1,9 @@
 <?php
 
-session_start();
-if (!isset($_SESSION["loggedin"])) {
-    header("Location:login.php");
-}
+// session_start();
+// if (!isset($_SESSION["loggedin"])) {
+//     header("Location:login.php");
+// }
 
 ?>
 
@@ -31,7 +31,7 @@ if (!isset($_SESSION["loggedin"])) {
 
             <div class="card custom-card-2">
                 <div class="card-body p-3 d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0 fw-bold"> ADD SERVICES</h5>
+                    <h5 class="mb-0 fw-bold"> ADD PRODUCTS</h5>
                 </div>
             </div>
 
@@ -59,19 +59,33 @@ if (!isset($_SESSION["loggedin"])) {
             <div class="card custom-card-2 mt-2">
                 <div class="card-body p-4">
                     <form method="post" action="functions/functions.php" enctype="multipart/form-data">
-                        
                         <div class="mb-3">
-                            <label class="form-label" for="title">Name :</label>
-                            <input type="text" class="form-control" name="name" id="title" placeholder="Enter the Name" required>
+                            <label class="form-label" for="title">Product Name :</label>
+                            <input type="text" class="form-control" name="product_name" id="title" placeholder="Enter Name" required>
                         </div>
-
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Explanation :</label>
+                            <input type="text" class="form-control" name="explanation" id="title" placeholder="Enter Designation" required>
+                        </div>
                         <div class="mb-3">
                             <label class="form-label" for="image">Image :</label>
                             <input type="file" class="form-control" name="img" id="image">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Price :</label>
+                            <input type="text" class="form-control" name="price" id="title" placeholder="Enter Any Description" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Total :</label>
+                            <input type="text" class="form-control" name="total" id="title" placeholder="Enter Any Description" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Rating :</label>
+                            <input type="text" class="form-control" name="rating" id="title" placeholder="Enter Any Description" required>
+                        </div>
                         
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success float-end" name="add_service" style="background-color:#e9b819;">SUBMIT</button>
+                            <button type="submit" class="btn btn-success float-end" name="add_products" style="background-color:#e9b819;">SUBMIT</button>
                         </div>
                     </form>
                 </div>

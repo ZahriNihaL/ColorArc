@@ -1,11 +1,18 @@
+<?php
+
+include("admin/includes/db.php");
+
+?>
+
 <!doctype html>
+
 <html lang="en">
 
 <head>
 
     <?php include('style.php') ?>
 
-    <title>Cart Page</title>
+    <title>Profile</title>
 
 </head>
 
@@ -20,9 +27,6 @@
         <?php include('contents/nav.php') ?>
         
         <!-- -------------------------Navbar end-------------------------------- -->
-    
-
-
 
 
     <!-- -------------------------Product Navbar start-------------------------------- -->
@@ -295,3 +299,4 @@
 </body>
 
 </html>
+

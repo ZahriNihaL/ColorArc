@@ -1,12 +1,11 @@
 <?php
 
-// session_start();
-// if (!isset($_SESSION["loggedin"])) {
-//   header("Location:login.php");
-// }
+session_start();
+if (!isset($_SESSION["loggedin"])) {
+  header("Location:login.php");
+}
 
 include("includes/db.php");
-
 
 ?>
 
@@ -21,9 +20,7 @@ include("style.php");
 
 ?>
 
-
   <title>Dashboard</title>
-
 
 </head>
 
@@ -35,7 +32,7 @@ include("style.php");
     <div class="col-lg-10 wrapper">
         <div class="card custom-card-2">
           <div class="card-body p-3 d-flex align-items-center justify-content-between">
-            <h5 class="mb-0 fw-bold">SERVICES</h5>
+            <h5 class="mb-0 fw-bold">PRODUCTS</h5>
             <a href="add_service.php" class="btn btn-success" style="background-color: #460a38;">Add Services</a>
           </div>
         </div>
@@ -72,22 +69,20 @@ include("style.php");
 
 
                 $id = $row["id"];
-                $name = $row["name"];                
+                $name = $row["name"];
+                 
                 $img = $row["img"];
-              
-      
-               
+                
+                              
               
             ?>
-              <div class="col-md-3 service">
+              <div class="col-md-3 cart">
                 <div class="card">
                   <div class="card-body p-2 text-center">
-                    <img src="/admin/assets/images/service/<?php echo $img ?>" class="img-fluid">
+                    <img src="assets/images/service/<?php echo $img ?>" class="img-fluid">
                     <h4 class="fw-bold mt-2"><?php echo $name ?></h4>
-                   
                     
-
-
+                                       
                     <div class="d-flex justify-content-center">
 
                       <form method="post" action="edit_service.php">

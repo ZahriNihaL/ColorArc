@@ -1,12 +1,11 @@
 <?php
 
-// session_start();
-// if (!isset($_SESSION["loggedin"])) {
-//   header("Location:login.php");
-// }
+session_start();
+if (!isset($_SESSION["loggedin"])) {
+  header("Location:login.php");
+}
 
 include("includes/db.php");
-
 
 ?>
 
@@ -21,13 +20,13 @@ include("style.php");
 
 ?>
 
-
   <title>Dashboard</title>
 
 
 </head>
 
 <body>
+
   <div class="row min-vh-100 g-0">
 
     <?php include("content/navbar.php") ?>
@@ -83,7 +82,7 @@ include("style.php");
               <div class="col-md-3 customer">
                 <div class="card">
                   <div class="card-body p-2 text-center">
-                    <img src="/admin/assets/images/customer/<?php echo $img ?>" class="img-fluid">
+                    <img src="assets/images/customer/<?php echo $img ?>" class="img-fluid">
                     <h4 class="fw-bold mt-2"><?php echo $name ?></h4>
                     <div class="mt-2"><?php echo $explanation ?></div><br>
                     <div class="mt-2"><?php echo $designation ?></div>

@@ -69,7 +69,11 @@ include("includes/db.php");
 
             <div class="card custom-card-2 mt-2">
                 <div class="card-body p-4">
-                    <form method="post" action="functions/functions.php" enctype="multipart/form-data">
+                    <form method="post" action="functions/func
+                    
+                    
+                    7tions.php" enctype="multipart/form-data">
+                    
                         <div class="mb-3">
                             <label class="form-label" for="title">Company Time :</label>
                             <input type="text" class="form-control" value="<?php echo $company_time ?>" name="company_name" id="title" placeholder="Enter Company Name" required>

@@ -27,7 +27,7 @@
 
         <li class="nav-item">
             <a class="nav-link home-nav" href="product.php">
-            <i class="bi bi-slack"></i></i>Products</a>
+            <i class="bi bi-slack"></i></i>Product</a>
         </li>
 
         <li class="nav-item">
@@ -41,6 +41,11 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link home-nav" href="products.php">
+            <i class="bi bi-slack"></i></i>Items</a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link home-nav" href="wishlist.php">
             <i class="bi bi-heart"></i>Wishlist</a>
         </li>
@@ -49,6 +54,12 @@
             <a class="nav-link home-nav" href="cart.php">
             <i class="bi bi-heart"></i>cart</a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link home-nav" href="profile.php">
+            <i class="bi bi-heart"></i>profile</a>
+        </li>
+
 
         <li class="nav-item">
             <a class="nav-link about-nav about-nav" href="brands.php">

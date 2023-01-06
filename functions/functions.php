@@ -99,3 +99,39 @@ if (isset($_POST["cart_btn"])) {
         }
     }
 }
+
+
+
+if (isset($_POST["submit"])) {
+
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $gender = $_POST["gender"];
+    $phone_number = $_POST["phone_number"];
+    $about = $_POST["about"];
+    $address = $_POST["address"];
+    $city = $_POST["city"];
+    $pincode = $_POST["pincode"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $img = $_POST["img"];
+
+    
+
+    $img = $_FILES["img"]["name"];
+    $tmp_name = $_FILES["img"]["tmp_name"];
+  
+    $to = "../assets/images/profile/" . $img;
+  
+    move_uploaded_file($tmp_name, $to);
+  
+    $sql = "insert into tbl_profilet(first_name,last_name,gender,phone_number,about,address,city,pincode,email,password,img) values('$first_name','$last_name','$gender','$phone_number','$about','$address','$city','$pincode','$email','$password','$img')";
+    if(mysqli_query($con, $sql))
+    {
+        echo "<script> alert('new record inserted')</script>";
+     
+    } else {
+      echo "error:".mysqli_error($con);
+    }
+    mysqli_close($con);
+}

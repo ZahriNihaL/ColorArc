@@ -4,6 +4,7 @@ session_start();
 include("admin/includes/db.php");
 
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -27,9 +28,6 @@ include("admin/includes/db.php");
     <?php include('contents/nav.php') ?>
 
     <!-- -------------------------Navbar end-------------------------------- -->
-
-
-
 
 
     <!-- -------------------------Product Navbar start-------------------------------- -->
@@ -119,7 +117,6 @@ include("admin/includes/db.php");
 
 
 
-
                         <!--   <div class="quantityOne">
                               <div class="spinNumber">    -->
 
@@ -186,10 +183,6 @@ include("admin/includes/db.php");
     </section>
 
     <!-- -------------------------testimonial end-------------------------------- -->
-
-
-
-
 
 
     <!-- -------------------------footer start-------------------------------- -->

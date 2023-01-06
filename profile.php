@@ -47,7 +47,7 @@ include("admin/includes/db.php");
                            <div class="profile-links mt-5 ms-5">
 
                             <div class="profile-link-bg">
-                                <a href="#" > <i class="fa fa-user me-2"></i> My Account</a>
+                                <a href="my-profile.php" > <i class="fa fa-user me-2"></i> My Account</a>
                             </div>
                             <hr>
                             <div class="profile-link-bg">
@@ -72,7 +72,30 @@ include("admin/includes/db.php");
                     </div>
                 </div>
                 <div class="col-lg-9 ">
+                
                     <div class="profile-info">
+                    <?php
+                
+                    $sql = "select * from tbl_profile";
+                    $run = mysqli_query($con, $sql);
+                    while($row = mysqli_fetch_array($run)){
+                    
+
+                        $id = $row["id"];
+                        $first_name = $row["first_name"];
+                        $last_name = $row["last_name"];
+                        $gender = $row["gender"];
+                        $phone_number = $row["phone_number"];
+                        $about = $row["about"];
+                        $address = $row["address"];
+                        $city = $row["city"];
+                        $pincode = $row["pincode"];
+                        $email = $row["email"];
+                        $password = $row["password"];
+                        $img = $row["img"];
+
+                    ?>
+                    
                         <h5 class="head-color fw-bold mb-5">Profile Settings</h5>
                         
                         <div class="profile-name">
@@ -85,7 +108,8 @@ include("admin/includes/db.php");
                             <a href="#" class="update-photo"><i class="fa fa-edit"></i> Update Photo </a>
                         </div>
                        
-                        <form>
+                        <!-- <form> -->
+                        <form method="post" action="functions/functions.php">
                             <div class="row">
                                 
                                 <div class="col-lg-6">
@@ -138,16 +162,14 @@ include("admin/includes/db.php");
                             </div>
 
                             <button class="button-style btn-sm ">Update</button>
-                          </form>
+                        </form>
+                    <?php } ?>
                     </div>
-
-
-
-
 
                     <div class="contact-info mt-5">
                         <h5 class="head-color fw-bold mb-5">Contact Settings</h5>
-                        <form>
+                        <!-- <form> -->
+                        <form method="post" action="functions/functions.php">
                             <div class="row">
                                 
                                 <div class="col-lg-4">
@@ -193,6 +215,8 @@ include("admin/includes/db.php");
                                             <option value="3">Kerala</option>
 
                                             <option value="3">Madhya Pradesh </option>
+
+                                            
                                             <option value="3">Maharashtra</option>
                                             <option value="3">Manipur</option>
                                             <option value="3">Meghalaya</option>
@@ -226,14 +250,12 @@ include("admin/includes/db.php");
 
                             </div>
                             <button class="button-style btn-sm ">Update</button>
-                          </form>
+                        </form>
                     </div>
 
-
-
-
                     <div class="security-info mt-5" id="security">
-                        <form>
+                        <!-- <form> -->
+                        <form method="post" action="functions/functions.php">
                             <div class="row">
                                 <h5 class="head-color fw-bold mb-5">Security</h5>
                                 <div class="col-lg-6">
@@ -251,15 +273,13 @@ include("admin/includes/db.php");
                                 </div>
                             </div>
 
-
                            <div class="d-flex">
+                            <input type="submit" class="button-style btn-sm me-2" name="submit" value="submit">
                             <button class="button-style btn-sm ">Change password</button>
                             <a href="" class="delete-account ms-4">Delete Account</a>
                            </div>
-                          </form>
+                        </form>
                     </div>
-
-
 
                 </div>
             </div>
@@ -269,21 +289,11 @@ include("admin/includes/db.php");
     <!-- -------------------------testimonial end-------------------------------- -->
 
 
-
-
-
-
     <!-- -------------------------footer start-------------------------------- -->
 
     <?php include('footer.php') ?>
 
     <!-- -------------------------footer end-------------------------------- -->
-
-
-
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
@@ -296,6 +306,7 @@ include("admin/includes/db.php");
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+
 </body>
 
 </html>

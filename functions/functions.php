@@ -114,24 +114,28 @@ if (isset($_POST["submit"])) {
     $pincode = $_POST["pincode"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $img = $_POST["img"];
+    // $img = $_POST["img"];
 
     
 
-    $img = $_FILES["img"]["name"];
-    $tmp_name = $_FILES["img"]["tmp_name"];
+    // $img = $_FILES["img"]["name"];
+    // $tmp_name = $_FILES["img"]["tmp_name"];
   
-    $to = "../assets/images/profile/" . $img;
+    // $to = "../assets/images/profile/" . $img;
   
-    move_uploaded_file($tmp_name, $to);
+    // move_uploaded_file($tmp_name, $to);
   
-    $sql = "insert into tbl_profilet(first_name,last_name,gender,phone_number,about,address,city,pincode,email,password,img) values('$first_name','$last_name','$gender','$phone_number','$about','$address','$city','$pincode','$email','$password','$img')";
+    $sql = "insert into tbl_profile(first_name,last_name,gender,phone_number,about,address,city,pincode,email,password,img) values('$first_name','$last_name','$gender','$phone_number','$about','$address','$city','$pincode','$email','$password','1234')";
     if(mysqli_query($con, $sql))
     {
         echo "<script> alert('new record inserted')</script>";
+        header("Location: ../profile.php");
      
     } else {
-      echo "error:".mysqli_error($con);
+
+      echo "<script> alert('profile not inserted')</script>";
+      header("Location: ../profile.php");
+
     }
     mysqli_close($con);
 }

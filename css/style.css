@@ -115,7 +115,15 @@ body {
 .navbar .nav-search-link:hover {
     color: #000000;
 }
-
+.navbar .modal{
+    z-index: 1;
+    background-color: red;
+}
+.navbar .modal .modal-body input{
+    padding: 15px;
+    border: 0;
+    background-color: rgb(226, 226, 226);
+}
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
@@ -1985,3 +1993,44 @@ ul {
 .bg-trans{
     background: transparent;
 }
+
+
+/* ---------------------login start------------------------ */
+.login-page{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)), url("../images/11.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+.login-page form{
+    width: 400px;
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    margin-top: 100px;
+}
+.login-page form input{
+    border: 0;
+    border-radius: 20px;
+    background-color: #fafafa;
+    padding: 20px;
+}
+.login-page form input::placeholder{
+    font-size: 13px;
+}
+.login-page form button{
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.login-page form a{
+    text-decoration: none;
+}
+
+/* ---------------------login end------------------------ */

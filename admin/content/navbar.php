@@ -1,3 +1,14 @@
+<?php
+
+// session_start();
+
+// if (!isset($_SESSION["loggedin"])) {
+//     header("Location:login.php");
+// }
+
+?>
+
+
 <div class="col-lg-2 sidebar-left">
     <div class="profile d-flex mt-3 mx-3">
         <img src="../admin/assets/images/young-woman-with-coffee-gift-box-front-laptop.jpg" class=" me-3">

@@ -1,6 +1,7 @@
 <?php
 
 include("../includes/db.php");
+
 session_start();
 
 if (isset($_POST['logout'])) {
@@ -27,6 +28,8 @@ if (isset($_POST["login"])) {
     header("Location: ../indexx.php"); 
   }
 }
+
+
 
 if (isset($_POST["add_trending"])) {
   

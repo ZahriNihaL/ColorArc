@@ -1,3 +1,6 @@
+
+
+
 <div class="fixed-top bg-white">
             <nav class="navbar navbar-expand-lg navbar-light pt-3 pb-4 fixed-top bg-white">
                 <div class="container">
@@ -62,6 +65,34 @@
                                 </div>
                             </li>
                         </ul>
+                        <button type="button" class="button-style" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Sign In</button>
+                            <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <h5 class="modal-title" id="exampleModalLabel">New message</h5> -->
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" id="recipient-name" placeholder="Email or Phone Number">
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            </div>
+                                            <div class="text-center">
+                                                <button class="btn-sm">Sign In</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Send message</button>
+                                    </div> -->
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>                       
             </nav>

@@ -519,10 +519,12 @@ ul {
 }
 
 .popular-products .product-cards .card .product-card-img-bg img {
-    height: 180px;
-    width: auto;
+    height: 130px;
+    width: 210px;
     margin: 0 auto;
     display: block;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .popular-products .disabled-rate {
@@ -959,7 +961,9 @@ ul {
     padding-bottom: 70px;
     background-color: #060902;
 }
-
+.footer-top{
+    margin-top: 0px!important;
+}
 .footer a {
     text-decoration: none;
     transition: 0.3s ease;
@@ -1998,39 +2002,99 @@ ul {
 /* ---------------------login start------------------------ */
 .login-page{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)), url("../images/11.jpg");
+    rgba(0, 0, 0, 0.5)), url("../images/1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding-top: 200px;
     padding-bottom: 100px;
+    height: 100vh;
 }
 .login-page form{
-    width: 400px;
-    background-color: white;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    border-radius: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
+    /* width: 400px; */
+    background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
-    margin-top: 100px;
+    margin-top: 70px;
+    padding: 100px;
+}
+.login-page form h4{
+    color: #e5777e;
 }
 .login-page form input{
     border: 0;
     border-radius: 20px;
     background-color: #fafafa;
-    padding: 20px;
+    padding: 10px 10px 10px 20px;
 }
 .login-page form input::placeholder{
     font-size: 13px;
 }
 .login-page form button{
-    padding: 10px 20px;
+    padding: 10px 190px;
     border-radius: 20px;
+    background-color: #d4212c9c;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+.login-page form button:hover{
+    color: white;
+    opacity: 0.7;
 }
 .login-page form a{
     text-decoration: none;
 }
 
 /* ---------------------login end------------------------ */
+
+
+/* ---------------------login start------------------------ */
+.signup-page{
+    background-color:  rgb(247, 247, 247);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    height: 100vh;
+}
+.signup-page form{
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    margin-top: 70px;
+    padding: 100px;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+}
+.signup-page form h4{
+    color: #e5777e;
+}
+.signup-pageform input{
+    border: 0;
+    border-radius: 20px;
+    background-color: #fafafa;
+    padding: 10px 10px 10px 20px;
+}
+.signup-page form input::placeholder{
+    font-size: 13px;
+}
+.signup-page form button{
+    padding: 10px 190px;
+    border-radius: 20px;
+    background-color: #d4212c9c;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+.signup-page form button:hover{
+    color: white;
+    opacity: 0.7;
+}
+.signup-page form a{
+    text-decoration: none;
+}
+
+/* ---------------------login end------------------------ */
+

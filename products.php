@@ -1,6 +1,6 @@
 <?php
 
-include("admin/includes/db.php");
+include("admin/assets/includes/db.php");
 
 ?>
 
@@ -10,7 +10,7 @@ include("admin/includes/db.php");
 
 <head>
 
-    <?php include('style.php') ?>
+    <?php include('css/style.php') ?>
 
     <title>Color Arc</title>
 
@@ -18,8 +18,8 @@ include("admin/includes/db.php");
 
 <body>
 
-<div class="alert popup">
-</div>
+    <div class="alert popup">
+    </div>
 
 
     <!-- -------------------------Fixed navbars start-------------------------------- -->
@@ -73,11 +73,6 @@ include("admin/includes/db.php");
     <!-- -------------------------Product Navbar end-------------------------------- -->
 
     <!-- -------------------------Fixed navbars start-------------------------------- -->
-
-
-
-
-
 
     <!-- -------------------------popular products start-------------------------------- -->
 
@@ -242,7 +237,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Fabric
                                                 <i class="fa fa-angle-down"></i>
@@ -262,7 +256,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Material
                                                 <i class="fa fa-angle-down"></i>
@@ -278,7 +271,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Fit or Shape
                                                 <i class="fa fa-angle-down"></i>
@@ -298,7 +290,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Print Type
                                                 <i class="fa fa-angle-down"></i>
@@ -314,7 +305,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Top Type
                                                 <i class="fa fa-angle-down"></i>
@@ -334,7 +324,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Length
                                                 <i class="fa fa-angle-down"></i>
@@ -350,7 +339,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Width
                                                 <i class="fa fa-angle-down"></i>
@@ -370,7 +358,6 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="item-filter">
                                             <button class="dropdown-btn">Usage
                                                 <i class="fa fa-angle-down"></i>
@@ -386,23 +373,17 @@ include("admin/includes/db.php");
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-8 product-cards">
                         <div class="row">
                             <?php
-
                             $sql = "select * from tbl_products";
                             $run = mysqli_query($con, $sql);
                             while ($row = mysqli_fetch_array($run)) {
-
-
                                 $id = $row["id"];
                                 $product_name = $row["product_name"];
                                 $explanation = $row["explanation"];
@@ -410,9 +391,7 @@ include("admin/includes/db.php");
                                 $price = $row["price"];
                                 $total = $row["total"];
                                 $rating = $row["rating"];
-
                             ?>
-
                                 <div class="col-lg-3 mb-3">
                                     <div class="card">
                                         <div class="card-body">
@@ -443,38 +422,20 @@ include("admin/includes/db.php");
                                         </div>
                                     </div>
                                 </div>
-
                             <?php } ?>
+                        </div>
                     </div>
-
                 </div>
-
             </div>
-
-        </div>
     </section>
 
-    <!-- -------------------------popular products end-------------------------------- -->
+    <!-- -------------------------popular products end--------------------------->
 
+    <!-- -------------------------footer start---------------------------------->
 
+    <?php include('contents/footer.php') ?>
 
-
-
-
-
-
-
-
-
-    <!-- -------------------------footer start-------------------------------- -->
-
-    <?php include('footer.php') ?>
-
-    <!-- -------------------------footer end-------------------------------- -->
-
-
-
-
+    <!-- -------------------------footer end---------------------------------->
 
     <script>
         /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
@@ -493,8 +454,6 @@ include("admin/includes/db.php");
             });
         }
     </script>
-
-
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>

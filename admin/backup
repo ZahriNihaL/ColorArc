@@ -1,0 +1,63 @@
+<?php
+$pro_sql = "select * from tbl_product";
+                $run_pro = mysqli_query($con, $pro_sql);
+                $pro_count = mysqli_num_rows($run_pro);
+                ?>
+                        <div class="col-lg-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6 class="card-title fw-bold">PRODUCTS</h6>
+                                            <h4 class="fw-bold text-black"><?php echo $pro_count ?></h4>
+                                        </div>
+                                        <div class="col-lg-4 icon-dash card-img-bg">
+                                        <i class="bi bi-play-btn-fill icon"></i>
+                                        </div>
+                                    </div>
+                                <p class="card-text">Total Products</p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                $off_sql = "select * from tbl_offer";
+                $run_off = mysqli_query($con, $off_sql);
+                $off_count = mysqli_num_rows($run_off);
+                ?>
+                        <div class="col-lg-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6 class="card-title fw-bold">OFFER ZONE</h6>
+                                            <h4 class="fw-bold text-black"><?php echo $off_count ?></h4>
+                                        </div>
+                                        <div class="col-lg-4 icon-dash card-img-bg">
+                                            <i class="bi bi-person-lines-fill icon"></i>                                   
+                                        </div>
+                                    </div>
+                                <p class="card-text">Total Offers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                $odr_sql = "select * from tbl_orders";
+                $run_odr = mysqli_query($con, $odr_sql);
+                $odr_count = mysqli_num_rows($run_odr);
+                ?>
+                        <div class="col-lg-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6 class="card-title fw-bold">ODDERS</h6>
+                                            <h4 class="fw-bold text-black"><?php echo $odr_count ?></h4>
+                                        </div>
+                                        <div class="col-lg-4 icon-dash card-img-bg">
+                                            <i class="bi bi-person-lines-fill icon"></i>                                   
+                                        </div>
+                                    </div>
+                                <p class="card-text">Total Orders Received</p>
+                                </div>
+                            </div>
+                        </div>

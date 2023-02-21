@@ -22,20 +22,13 @@ header('location:index.php');
         header('location:show-wishlist.php');
 
     }
-
  }
- 
 
 //  $total = $total +  ($row_cart['price'] * $value['quantity']);
 
-
-
-
-
-
-
-
-
 }
-
 ?>
+<?php include("assets/content/script.php"); ?>
+<script>
+   changeNav("wishlist-nav");
+</script>

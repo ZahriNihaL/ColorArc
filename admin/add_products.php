@@ -1,64 +1,54 @@
 <?php
-
-// session_start();
-// if (!isset($_SESSION["loggedin"])) {
-//     header("Location:login.php");
-// }
-
+include("assets/includes/db.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <?php
-
-    include("style.php");
-
+    include("assets/css/style.php");
     ?>
-
-    <title>Dashboard</title>
-
+    <title>PRODUCTS</title>
 </head>
 
 <body>
-    <div class="row min-vh-100 g-0">
-
-        <?php include("content/navbar.php") ?>
-
-        <div class="col-lg-10 wrapper">
-
-            <div class="card custom-card-2">
-                <div class="card-body p-3 d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0 fw-bold"> ADD PRODUCTS</h5>
+    <?php include("assets/content/navbar.php") ?>
+    <section class="home">
+        <div class="text">
+            <div class="admin-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-lg-10">
+                                <h4 class="card-title ms-0 fw-bold mb-0">PRODUCTS</h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <?php
+            if (isset($_GET["error"])) {
+            ?>
+                <div class="alert alert-danger text-center mt-2" role="alert">
+                    <?php
+                    $error = $_GET["error"];
+                    echo $error;
+                    ?>
+                </div>
 
             <?php
-              if(isset($_GET["error"])){
-              ?>
-              <div class="alert alert-danger text-center mt-2" role="alert">
-                <?php
-                $error = $_GET["error"];
-                echo $error;
-                ?>
-              </div>
-
-              <?php
-              }else if(isset($_GET["success"])){
-              ?>
-              <div class="alert alert-success text-center mt-2" role="alert">
-                <?php
-                $error = $_GET["success"];
-                echo $error;
-                ?>
-              </div>
-              <?php } ?>
-            <div class=""></div>
+            } else if (isset($_GET["success"])) {
+            ?>
+                <div class="alert alert-success text-center mt-2" role="alert">
+                    <?php
+                    $error = $_GET["success"];
+                    echo $error;
+                    ?>
+                </div>
+            <?php } ?>
             <div class="card custom-card-2 mt-2">
                 <div class="card-body p-4">
-                    <form method="post" action="functions/functions.php" enctype="multipart/form-data">
+                    <form method="post" action="assets/functions/functions.php" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label" for="title">Product Name :</label>
                             <input type="text" class="form-control" name="product_name" id="title" placeholder="Enter Name" required>
@@ -83,14 +73,19 @@
                             <label class="form-label" for="title">Rating :</label>
                             <input type="text" class="form-control" name="rating" id="title" placeholder="Enter Any Description" required>
                         </div>
-                        
+
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success float-end" name="add_products" style="background-color:#e9b819;">SUBMIT</button>
+                            <button type="submit" class="btn btn-success float-end" name="add_products" style="background-color:#72080f;">SUBMIT</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+        <?php include("assets/content/script.php"); ?>
+        <script>
+            changeNav("products-nav");
+        </script>
 </body>
+
 </html>

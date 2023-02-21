@@ -1,27 +1,16 @@
 <?php
-
 session_start();
-include("admin/includes/db.php");
-
+include("admin/assets/includes/db.php");
 ?>
-
 <!doctype html>
 <html lang="en">
-
 <head>
-
-    <?php include('style.php') ?>
-
-
-    <title>Color Arc</title>
-
+<?php include('css/style.php') ?>
+<title>Color Arc</title>
 </head>
-
 <body>
 
-
-    <!-- -------------------------Fixed navbars start-------------------------------- -->
-
+    <!-- -------------------------Fixed navbars start------------------------- -->
 
     <!-- -------------------------Navbar start-------------------------------- -->
 
@@ -29,104 +18,65 @@ include("admin/includes/db.php");
 
     <!-- -------------------------Navbar end-------------------------------- -->
 
-
-    <!-- -------------------------Product Navbar start-------------------------------- -->
-
+    <!-- -------------------------Product Navbar start----------------------- -->
 
     <section class="my-cart">
         <div class="container">
             <h3 class="fw-bold head-color text-center">My Shopping Cart </h3>
-
             <div class="wishlist-head d-none d-md-block">
                 <div class="row">
                     <div class="col-lg-2">
                         <h5 class="head-color ">Product</h5>
                     </div>
-
                     <div class="col-lg-2">
                         <h5 class="head-color ">Description</h5>
                     </div>
-
                     <div class="col-lg-2">
                         <h5 class="head-color ">Price</h5>
                     </div>
-
                     <div class="col-lg-2">
                         <h5 class="head-color ">Quantity</h5>
                     </div>
-
                     <div class="col-lg-2">
                         <h5 class="head-color ">Total</h5>
                     </div>
-
-                    <div class="col-lg-2">
-                        <!-- <h5 class="head-color"> Remove </h5> -->
-                    </div>
-
                 </div>
                 <hr class=" d-none d-md-block">
             </div>
-
             <div class="wishlist-items">
-
                 <?php
-
                 $total_price = 0;
                 $user = $_SESSION["colorarc_user_id"];
                 $sql = "select * from tbl_cart where user='$user'";
                 $run = mysqli_query($con, $sql);
                 while ($row = mysqli_fetch_array($run)) {
-
                     $id = $row["id"];
                     $pid = $row["pid"];
                     $qty = $row["qty"];
-
                     $pro_sql = "select * from tbl_products where id='$pid'";
                     $pro_run = mysqli_query($con, $pro_sql);
                     $pro_row = mysqli_fetch_assoc($pro_run);
-
                     $img = $pro_row["img"];
                     $product_name = $pro_row["product_name"];
                     $explanation = $pro_row["explanation"];
                     $price = $pro_row["total"];
-
                     $pro_price = (int)$qty * (float)$price;
                     $total_price += $pro_price;
                 ?>
-
                     <div class="row ind">
-
                         <div class="col-lg-2">
                             <img src="admin/assets/images/cart/<?php echo $img ?>" alt="wishlist image" class="img-fluid">
                         </div>
-
                         <div class="col-lg-2">
                             <h6 class="head-color fw-bold mt-3 mt-md-3"><?php echo $product_name ?></h6>
                             <p class="para-color"><?php echo $explanation ?></p>
                         </div>
-
                         <div class="col-lg-2 mt-2 mt-md-5 d-none d-md-block">
                             <input type="hidden" class="price_output" value="<?php echo $price ?>">
                             <h5 class="head-color fw-bold"><?php echo $price ?> </h5>
                         </div>
-
-                        <!-- <div class="col-lg-2 mt-2 mt-md-5 d-block d-md-none d-flex justify-content-center">
-                                    <h5 class="head-color me-3">Price</h5>
-                                    <h5 class="head-color fw-bold">₹399</h5>
-                                </div> -->
-
-
-
-                        <!--   <div class="quantityOne">
-                              <div class="spinNumber">    -->
-
                         <div class="col-lg-2 mt-2 mt-md-5 ">
-
                             <div class="d-flex quantity ">
-                                <!-- <a href="#"><div class="i-bg"><i class="fa fa-minus"></i></div></a>
-                                        <div class="i-bg"><h6 class="head-color fw-bold text-center">1</h></div>
-                                        <a href="#"><div class="i-bg"><i class="fa fa-plus text-center"></i></div></a> -->
-
                                 <div class="input-group mb-3">
                                     <input type="hidden" class="pro_price_output" value="<?php echo $pro_price ?>">
                                     <input type="hidden" class="cid" value="<?php echo $id ?>">
@@ -136,47 +86,25 @@ include("admin/includes/db.php");
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-lg-2 mt-2 mt-md-5 ">
                             <h5 class="regularPrice head-color fw-bold ind-tot-price"><?php echo $pro_price ?> </h5>
                         </div>
-
-                        <!-- </div>
-                            </div> -->
-
-                        <!-- <div class="col-lg-2 mt-3 mt-md-5 d-block d-md-none d-flex justify-content-center ">
-                                    <h5 class="head-color  me-3 ">Total </h5>
-                                    <h5 class="head-color fw-bold">₹399 </h5>
-                                </div> -->
-
                         <div class="col-lg-2 justify-content-center">
                             <form method="post" action="functions/functions.php">
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
                                 <button type="submit" name="remove_item" class="btn btn-danger remove-btn">Remove</button>
                             </form>
                         </div>
-
-
                         <hr class="mt-4 mb-4 mt-md-3 mb-md-3">
                     </div>
-
                 <?php } ?>
-
-
                 <div class="row mt-5">
                     <div class="d-flex justify-content-between">
-
                         <input type="hidden" class="total_price_output" value="<?php echo $total_price ?>">
                         <h5 class="head-color">Total Price</h5>
                         <h5 class="head-color"><?php echo $total_price ?></h5>
-
                     </div>
-
                     <hr class="mt-2">
-
-                    <!-- <div class="text-center">
-                            <button class="btn-sm button-style mt-3">Continue</button>
-                        </div> -->
                 </div>
             </div>
         </div>
@@ -184,10 +112,9 @@ include("admin/includes/db.php");
 
     <!-- -------------------------testimonial end-------------------------------- -->
 
-
     <!-- -------------------------footer start-------------------------------- -->
 
-    <?php include('footer.php') ?>
+    <?php include('contents/footer.php') ?>
 
     <!-- -------------------------footer end-------------------------------- -->
 
@@ -195,5 +122,4 @@ include("admin/includes/db.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
-
 </html

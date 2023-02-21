@@ -1,212 +1,124 @@
 <?php
-
-include("includes/db.php");
-
+include("assets/includes/db.php");
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-
 <?php
-
-include("style.php");
-
+include("assets/css/style.php");
 ?>
-
-    <title>Dashboard</title> 
-
+<title>Dashboard</title>
 </head>
-
-<body> 
-
-    <div class="row min-vh-100 g-0">    
-        <?php include("content/navbar.php") ?>
-
-        <div class="col-lg-10 wrapper">
-            <div class="card custom-card-2 mb-3">
-            <div class="card-body p-3 d-flex align-items-center justify-content-between">
-                <h5 class="mb-0 fw-bold">DASHBOARD</h5>
-                <!-- <a href="add_dashboard.php" class="btn btn-success" style="background-color:#FEB700;">Add Dashboard</a> -->
-                <div class="d-flex">
-
-                <div class="user-icon">
-                    <img src="assets/images/user.png" alt="" class="img-fluid mt-2">
-                    <h6 class="fw-bold me-2 mt-2">Admin</h6>
-                </div>
-
+<body>
+<?php include("assets/content/navbar.php") ?>
+<section class="home">
+    <div class="text">
+        <div class="admin-card">
+            <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-6">
+                        <h4 class="card-title ms-0 fw-bold mt-2">DASHBOARD</h4>
+                    </div>
+                  </div>                           
                 </div>
             </div>
+        </div>
+      
+        <?php
+        $hom_sql = "select * from tbl_home";
+        $run_hom = mysqli_query($con, $hom_sql);
+        $hom_count = mysqli_num_rows($run_hom);
+        ?>    
+        <div class="home-cards">
+            <div class="row">
+                <div class="col-lg-2 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h6 class="card-title fw-bold">HOME</h6>
+                                    <h4 class="fw-bold text-black"><?php echo $hom_count ?></h4>
+                                </div>
+                                <div class="col-lg-4 icon-dash card-img-bg">
+                                <i class="bi bi-card-checklist icon"></i>
+                                </div>
+                            </div>
+                          <p class="card-text">Total Home</p>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                $tbl_sql = "select * from tbl_trending";
+                $run_tbl = mysqli_query($con, $tbl_sql);
+                $tbl_count = mysqli_num_rows($run_tbl);
+                ?>    
+                        <div class="col-lg-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6 class="card-title fw-bold">TRENDING</h6>
+                                            <h4 class="fw-bold text-black"><?php echo $tbl_count ?></h4>
+                                        </div>
+                                        <div class="col-lg-4 icon-dash card-img-bg">
+                                        <i class="bi bi-display icon"></i>
+                                        </div>
+                                    </div>
+                                <p class="card-text">Total Trending</p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                $cat_sql = "select * from tbl_category";
+                $run_cat = mysqli_query($con, $cat_sql);
+                $cat_count = mysqli_num_rows($run_cat);
+                ?>    
+                        <div class="col-lg-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6 class="card-title fw-bold">CATEGORIES</h6>
+                                            <h4 class="fw-bold text-black"><?php echo $cat_count ?></h4>
+                                        </div>
+                                        <div class="col-lg-4 icon-dash card-img-bg">
+                                        <i class="bi bi-display icon"></i>
+                                        </div>
+                                    </div>
+                                <p class="card-text">Total Categories</p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                $cart_sql = "select * from tbl_cart";
+                $run_cart = mysqli_query($con, $cart_sql);
+                $cart_count = mysqli_num_rows($run_cart);
+                ?>
+                        <div class="col-lg-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6 class="card-title fw-bold"> ADD TO CART</h6>
+                                            <h4 class="fw-bold text-black"><?php echo $cart_count ?></h4>
+                                        </div>
+                                        <div class="col-lg-4 icon-dash card-img-bg">
+                                            <i class="bi bi-person-lines-fill icon"></i>                                   
+                                        </div>
+                                    </div>
+                                <p class="card-text">Total Cart Products</p>
+                                </div>
+                            </div>
+                        </div>
             </div>
+        </div>
+    </div>
+</section>
+<?php include("assets/content/script.php"); ?>
+<script>
+        changeNav("indexx-nav");
+</script>
+</body>
+</html>
 
-            <div class="row mb-4">
-                <div class="col-lg-2 col-md-12 col-xl-2 mb-2 ">
-                    <div class="custom-card card-right">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="bi bi-people"></i></div>
-                        </div>
-                        <div class="card-text">
-                            TRENDING
-                            <?php
-                                $dash_query = "SELECT * from tbl_trending";
-                                $dash_query_run = mysqli_query($con, $dash_query);
-                                if($tbl_trending_total = mysqli_num_rows($dash_query_run))
-                                {
-                                    echo'<h4 class="mb-0"> '.$tbl_trending_total.'</h4>';
-                                }
-                                else{
-                                    echo'<h4 class="mb-0"> '.$tbl_trending_total.' </h4>';
-                                }
-                            ?>
-                            
-                        </div>                      
-                    </div>
-                </div>
-
-                <div class="row mb-4">
-                <div class="col-lg-2 col-md-12 col-xl-2 mb-2 ">
-                    <div class="custom-card card-right">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="bi bi-people"></i></div>
-                        </div>
-                        <div class="card-text">
-                            HOME
-                            <?php
-                                $dash_query = "SELECT * from tbl_home";
-                                $dash_query_run = mysqli_query($con, $dash_query);
-                                if($tbl_home_total = mysqli_num_rows($dash_query_run))
-                                {
-                                    echo'<h4 class="mb-0"> '.$tbl_home_total.'</h4>';
-                                }
-                                else{
-                                    echo'<h4 class="mb-0"> '.$tbl_home_total.' </h4>';
-                                }
-                            ?>
-                            
-                        </div>                      
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-12 col-xl-2 mb-2 ">
-                    <div class="custom-card card-right">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="bi bi-people"></i></div>
-                        </div>
-                        <div class="card-text">
-                            CATEGORIES
-                            <?php
-                                $dash_query = "SELECT * from tbl_category";
-                                $dash_query_run = mysqli_query($con, $dash_query);
-                                if($tbl_category_total = mysqli_num_rows($dash_query_run))
-                                {
-                                    echo'<h4 class="mb-0"> '.$tbl_category_total.'</h4>';
-                                }
-                                else{
-                                    echo'<h4 class="mb-0"> '.$tbl_category_total.' </h4>';
-                                }
-                            ?>
-                            
-                        </div>                      
-                    </div>
-                </div>
-                
-
-                
-                <div class="col-lg-2 col-md-12 col-xl-2 mb-2 ">
-                    <div class="custom-card card-left">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="bi bi-file-earmark-slides"></i></div>
-                            <button class="btn ms-auto text-white py-0 px-1"></button>
-                        </div>
-                        <div class="card-text">
-                            PRODUCTS
-                            <?php
-                                $dash_query = "SELECT * from tbl_products";
-                                $dash_query_run = mysqli_query($con, $dash_query);
-                                if($tbl_products_total = mysqli_num_rows($dash_query_run))
-                                {
-                                    echo'<h4 class="mb-0"> '.$tbl_products_total.'</h4>';
-                                }
-                                else{
-                                    echo'<h4 class="mb-0"> '.$tbl_products_total.' </h4>';
-                                }
-
-                            ?>
-                        </div>                       
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-12 col-xl-2 mb-2 ">
-                    <div class="custom-card card-right">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="bi bi-people"></i></div>
-                        </div>
-                        <div class="card-text">
-                            OFFER ZONE
-                            <?php
-                                $dash_query = "SELECT * from tbl_offer";
-                                $dash_query_run = mysqli_query($con, $dash_query);
-                                if($tbl_offer_total = mysqli_num_rows($dash_query_run))
-                                {
-                                    echo'<h4 class="mb-0"> '.$tbl_offer_total.'</h4>';
-                                }
-                                else{
-                                    echo'<h4 class="mb-0"> '.$tbl_offer_total.' </h4>';
-                                }
-                            ?>
-                        </div>                      
-                    </div>
-                </div>
-
-
-                <div class="col-lg-2 col-md-12 col-xl-2 mb-2 ">
-                    <div class="custom-card card-right">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="bi bi-people"></i></div>
-                        </div>
-                        <div class="card-text">
-                            ORDERS
-                            <?php
-                                $dash_query = "SELECT * from tbl_orders";
-                                $dash_query_run = mysqli_query($con, $dash_query);
-                                if($tbl_orders_total = mysqli_num_rows($dash_query_run))
-                                {
-                                    echo'<h4 class="mb-0"> '.$tbl_orders_total.'</h4>';
-                                }
-                                else{
-                                    echo'<h4 class="mb-0"> '.$tbl_orders_total.' </h4>';
-                                }
-                            ?>
-                        </div>                      
-                    </div>
-                </div>
-
-                
-
-                <div class="col-lg-2 col-md-12 col-xl-2 mb-3">
-                    <div class="custom-card card-right">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="bi bi-people"></i></div>
-                        </div>
-                        <div class="card-text">
-                            ADD TO CART
-                            <?php
-                                $dash_query = "SELECT * from tbl_cart";
-                                $dash_query_run = mysqli_query($con, $dash_query);
-                                if($tbl_cart_total = mysqli_num_rows($dash_query_run))
-                                {
-                                    echo'<h4 class="mb-0"> '.$tbl_cart_total.'</h4>';
-                                }
-                                else{
-                                    echo'<h4 class="mb-0"> '.$tbl_cart_total.' </h4>';
-                                }
-                            ?>
-                        </div>                      
-                    </div>
-                </div>
-
-            </div>
-        </div>            
-        <!-- <div class="col-lg-3 sidebar-right"> -->
-            

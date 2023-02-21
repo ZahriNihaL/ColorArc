@@ -1,9 +1,8 @@
 <?php
-
 session_start();
-include("../admin/includes/db.php");
-$_SESSION["colorarc_user_id"] = "10";
+include("../admin/assets/includes/db.php");
 
+// $_SESSION["colorarc_user_id"] = "10";
 
 if (isset($_POST["add_cart"])) {
     $pid = mysqli_escape_string($con, $_POST["product_id"]);
@@ -26,8 +25,6 @@ if (isset($_POST["add_cart"])) {
         }
     }
 }
-
-
 
 if (isset($_POST["update_cart"])) {
     $cid = mysqli_escape_string($con, $_POST["cart_id"]);
@@ -53,7 +50,6 @@ if (isset($_POST["update_cart"])) {
 }
 
 
-
 if (isset($_POST["add_wishlist"])) {
     $pid = mysqli_escape_string($con, $_POST["product_id"]);
     $user = $_SESSION["colorarc_user_id"];
@@ -75,8 +71,6 @@ if (isset($_POST["add_wishlist"])) {
         }
     }
 }
-
-
 
 if (isset($_POST["cart_btn"])) {
     $pid = mysqli_escape_string($con, $_POST["product_id"]);
@@ -100,8 +94,6 @@ if (isset($_POST["cart_btn"])) {
     }
 }
 
-
-
 if (isset($_POST["submit"])) {
 
     $first_name = $_POST["first_name"];
@@ -114,27 +106,76 @@ if (isset($_POST["submit"])) {
     $pincode = $_POST["pincode"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-    // $img = $_POST["img"];
-
-    
-
-    // $img = $_FILES["img"]["name"];
-    // $tmp_name = $_FILES["img"]["tmp_name"];
-  
-    // $to = "../assets/images/profile/" . $img;
-  
-    // move_uploaded_file($tmp_name, $to);
-  
     $sql = "insert into tbl_profile(first_name,last_name,gender,phone_number,about,address,city,pincode,email,password,img) values('$first_name','$last_name','$gender','$phone_number','$about','$address','$city','$pincode','$email','$password','1234')";
     if(mysqli_query($con, $sql))
     {
-        echo "<script> alert('new record inserted')</script>";
         header("Location: ../profile.php");
+    }
+    else {
+      header("Location: ../profile.php");
+    }
+    mysqli_close($con);
+}
+
+if (isset($_POST["signup"])) {
+
+    $phone_number = $_POST["phone_number"];
+    $mail = $_POST["mail"];
+    $password = $_POST["password"];
+    $confirm_password = $_POST["confirm_password"];
+    $name = $_POST["name"];
+    $sql = "insert into tbl_login(phone_number,mail,password,confirm_password,name) values('$phone_number','$mail',$password',$confirm_password',$name')";
+    $run = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($run);
+    if ($count != 0) {
+        if ($password == $confirm_password){
+            $_SESSION["colorarc_loggedin"] = true;
+            header("Location: ../index.php");
+        } 
+        else{
+        header("Location: ../signup.php?error=Invalid credential");
+        }
+    }
+    else {
+        header("Location: ../signup.php?error=Invalid credential");
+    }
+}
+
+
+if (isset($_POST["login"])) {
+
+    $phone_number = mysqli_real_escape_string($con, $_POST["phone_number"]);
+    $mail = mysqli_real_escape_string($con, $_POST["mail"]);
+    $password = mysqli_real_escape_string($con, $_POST["password"]);
+    $passhash = hash("sha256", $password);
+    $sql = "select * from tbl_login where phone_number='$phone_number' || mail='$mail' and password='$passhash'";
+    $run = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($run);
+    if ($count === 0) {
+      header("Location: ../index.php?error=Invalid credential");
+    } else {
+      header("Location: ../index.php");
+    }
+  }
+
+
+if (isset($_POST["send_message"])) {
+
+    $name = $_POST["name"];
+    $phone_num = $_POST["phone_num"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+   
+    $sql = "insert into tbl_customer_service(name,phone_num,email,message) values('$name','$phone_number','$email','$message')";
+    if(mysqli_query($con, $sql))
+    {
+        echo "<script> alert('message send')</script>";
+        header("Location: ../customer-service.php");
      
     } else {
 
-      echo "<script> alert('profile not inserted')</script>";
-      header("Location: ../profile.php");
+      echo "<script> alert('message can't send ')</script>";
+      header("Location: ../customer-service.php");
 
     }
     mysqli_close($con);

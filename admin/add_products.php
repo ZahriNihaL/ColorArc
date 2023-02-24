@@ -55,7 +55,7 @@ include("assets/includes/db.php");
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="title">Explanation :</label>
-                            <input type="text" class="form-control" name="explanation" id="title" placeholder="Enter Designation" required>
+                            <input type="text" class="form-control" name="explanation" id="title" placeholder="Enter Product Explanation" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="image">Image :</label>
@@ -63,15 +63,11 @@ include("assets/includes/db.php");
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="title">Price :</label>
-                            <input type="text" class="form-control" name="price" id="title" placeholder="Enter Any Description" required>
+                            <input type="text" class="form-control" name="price" id="title" placeholder="Enter Price" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="title">Total :</label>
-                            <input type="text" class="form-control" name="total" id="title" placeholder="Enter Any Description" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="title">Rating :</label>
-                            <input type="text" class="form-control" name="rating" id="title" placeholder="Enter Any Description" required>
+                            <input type="text" class="form-control" name="total" id="title" placeholder="Enter Offer Price" required>
                         </div>
 
                         <div class="mb-3">

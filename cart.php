@@ -22,7 +22,7 @@ include("admin/assets/includes/db.php");
 
     <section class="my-cart">
         <div class="container">
-            <h3 class="fw-bold head-color text-center">My Shopping Cart </h3>
+            <h3 class="fw-bold head-color text-center">My Shopping Cart</h3>
             <div class="wishlist-head d-none d-md-block">
                 <div class="row">
                     <div class="col-lg-2">
@@ -109,17 +109,13 @@ include("admin/assets/includes/db.php");
             </div>
         </div>
     </section>
+<!-- -------------------------footer start-------------------------------->
 
-    <!-- -------------------------testimonial end-------------------------------- -->
+<?php include('contents/footer.php') ?>
 
-    <!-- -------------------------footer start-------------------------------- -->
+<!-- -------------------------footer end---------------------------------->
 
-    <?php include('contents/footer.php') ?>
+<?php include("contents/script.php") ?>
 
-    <!-- -------------------------footer end-------------------------------- -->
-
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
 </body>
 </html

@@ -60,13 +60,12 @@
                             </li>
                             <li class="nav-item">
                                 <div class="profile text-center">
-                                    <a href="customer-service.php"><i class="fa fa-headphones"></i></a><br>
-                                    <a href="customer-service.php" class="text-center nav-link-color">Customer Service</a>
+                                    <a href="customer_service.php"><i class="fa fa-headphones"></i></a><br>
+                                    <a href="customer_service.php" class="text-center nav-link-color">Customer Service</a>
                                 </div>
                             </li>
                         </ul>
-                        <a href="login.php">  <button type="button" class="button-style" name="login" >Sign In</button></a>
-                            
+                        <a href="login.php"><button type="button" class="button-style" name="login" >Sign In</button></a>
                     </div>
                 </div>                       
             </nav>

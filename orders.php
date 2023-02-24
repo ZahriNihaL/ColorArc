@@ -4,6 +4,12 @@ include("admin/assets/includes/db.php");
 <!doctype html>
 <html lang="en">
 <head>
+    <?php
+    session_start();
+    if (!isset($_SESSION["colorarc_loggedin"])) {
+        header("Location: login.php");
+    }
+    ?>
 <?php include('css/style.php') ?>
 <title>My Orders</title>
 </head>
@@ -91,13 +97,10 @@ include("admin/assets/includes/db.php");
                                             <p class="icon-color d-md-none ordered"> <i class='fa fa-angle-right icon-color'></i> Price:</p>
                                             <h6 class="head-color fw-bold">₹200</h6>
                                         </div>
-
                                         <div class="col-lg-2 pt-md-3">
                                             <p class="icon-color d-md-none ordered mt-2"> <i class='fa fa-angle-right icon-color'></i> Quantity:</p>
                                             <h6 class="head-color">3</h6>
                                         </div>
-
-                                    
                                         <div class="col-lg-2 pt-md-3">
                                             <p class="icon-color d-md-none ordered"> <i class='fa fa-angle-right icon-color'></i> Total Price:</p>
                                             <h6 class="head-color fw-bold">₹600</h6>
@@ -120,14 +123,11 @@ include("admin/assets/includes/db.php");
                                             <p class="para-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Color: White</p>
                                             <p class="icon-color d-md-none ordered"> <i class='fa fa-angle-right icon-color'></i> Price:</p>
                                             <h6 class="head-color fw-bold">₹150</h6>
-                                            
                                         </div>
-
                                         <div class="col-lg-2 pt-md-3">
                                             <p class="icon-color d-md-none ordered mt-2"> <i class='fa fa-angle-right icon-color'></i> Quantity:</p>
                                             <h6 class="head-color">2</h6>
                                         </div>
-
                                         <div class="col-lg-2 pt-md-3">
                                             <p class="icon-color d-md-none ordered"> <i class='fa fa-angle-right icon-color'></i> Total Price:</p>
                                             <h6 class="head-color fw-bold">₹300</h6>
@@ -152,12 +152,10 @@ include("admin/assets/includes/db.php");
                                             <h6 class="head-color fw-bold">₹260</h6>
                                             <!-- <p class="para-color">Color: Black</p> -->
                                         </div>
-                                    
                                         <div class="col-lg-2 pt-md-3">
                                             <p class="icon-color d-md-none ordered mt-2"> <i class='fa fa-angle-right icon-color'></i> Quantity:</p>
                                             <h6 class="head-color">1</h6>
                                         </div>
-
                                         <div class="col-lg-2 pt-md-3">
                                             <p class="icon-color d-md-none ordered"> <i class='fa fa-angle-right icon-color'></i> Total Price:</p>
                                             <h6 class="head-color fw-bold">₹260</h6>
@@ -211,6 +209,7 @@ include("admin/assets/includes/db.php");
 
     <!-- -------------------------footer end-------------------------------- -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"crossorigin="anonymous"></script>
+    <?php include("contents/script.php") ?>
+    
 </body>
 </html>

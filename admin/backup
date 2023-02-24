@@ -1,25 +1,29 @@
 <?php
-$pro_sql = "select * from tbl_product";
-                $run_pro = mysqli_query($con, $pro_sql);
-                $pro_count = mysqli_num_rows($run_pro);
-                ?>
-                        <div class="col-lg-2">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h6 class="card-title fw-bold">PRODUCTS</h6>
-                                            <h4 class="fw-bold text-black"><?php echo $pro_count ?></h4>
-                                        </div>
-                                        <div class="col-lg-4 icon-dash card-img-bg">
-                                        <i class="bi bi-play-btn-fill icon"></i>
-                                        </div>
-                                    </div>
-                                <p class="card-text">Total Products</p>
-                                </div>
-                            </div>
+$cat_sql = "select * from tbl_category";
+$run_cat = mysqli_query($con, $cat_sql);
+$cat_count = mysqli_num_rows($run_cat);
+?>    
+        <div class="col-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6 class="card-title fw-bold">CATEGORIES</h6>
+                            <h4 class="fw-bold text-black"><?php echo $cat_count ?></h4>
                         </div>
-                        <?php
+                        <div class="col-lg-4 icon-dash card-img-bg">
+                        <i class="bi bi-display icon"></i>
+                        </div>
+                    </div>
+                <p class="card-text">Total Categories</p>
+                </div>
+            </div>
+        </div>
+        <?php
+
+
+
+
                 $off_sql = "select * from tbl_offer";
                 $run_off = mysqli_query($con, $off_sql);
                 $off_count = mysqli_num_rows($run_off);

@@ -27,17 +27,11 @@
                     <i class="bi bi-house-door me-2 icon"></i>
                         <span class="text nav-text">Home</span>
                     </a>
-                </li>                         
-                <li class="nav-link" id="trend-nav">
-                    <a href="trend.php">
-                    <i class="bi bi-fire me-2 icon"></i>
-                    <span class="text nav-text">Trending</span>
-                    </a>
                 </li>
                 <li class="nav-link" id="classifications-nav">
                     <a href="classifications.php">
                     <i class="bi bi-grid-1x2 me-2 icon"></i>
-                        <span class="text nav-text">Product Categories</span>
+                        <span class="text nav-text">Categories</span>
                     </a>
                 </li> 
                 <li class="nav-link" id="product-nav">
@@ -46,13 +40,19 @@
                     <i class="bi bi-layout-text-window me-2 icon"></i>
                         <span class="text nav-text">Products</span>
                     </a>
-                </li>      
-                <!-- <li class="nav-link" id="service-nav">
-                    <a href="service.php">
-                    <i class="bi bi-card-checklist me-2 icon"></i>
-                        <span class="text nav-text">Services</span>
+                </li>                            
+                <li class="nav-link" id="cust-nav">
+                    <a href="customers.php">
+                    <i class="bi bi-person-lines-fill me-2 icon"></i>
+                    <span class="text nav-text">Customers</span>
                     </a>
-                </li>       -->
+                </li>
+                <li class="nav-link" id="cont-nav">
+                    <a href="contacts.php">
+                    <i class="bi bi-person-lines-fill me-2 icon"></i>
+                    <span class="text nav-text">Contacts</span>
+                    </a>
+                </li>
                 <li class="nav-link" id="testimonial-nav">
                     <a href="testimonial.php">
                     <i class="bi bi-person-video3 me-2 icon"></i>

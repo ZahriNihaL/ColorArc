@@ -1,29 +1,16 @@
 <?php
-
 include("admin/assets/includes/db.php");
-
 ?>
-
 <!doctype html>
-
 <html lang="en">
-
 <head>
-
-    <?php include('css/style.php') ?>
-
-    <title>Color Arc</title>
-
+<?php include('css/style.php') ?>
+<title>Products</title>
 </head>
-
 <body>
-
     <div class="alert popup">
     </div>
-
-
     <!-- -------------------------Fixed navbars start-------------------------------- -->
-
 
     <!-- -------------------------Navbar start-------------------------------- -->
 
@@ -31,26 +18,19 @@ include("admin/assets/includes/db.php");
 
     <!-- -------------------------Navbar end-------------------------------- -->
 
-
     <!-- -------------------------Product Navbar start---------------------------------->
-
 
     <section class="product-navbar  bg-white">
         <div class="container">
             <ul class="product-nav-items">
-
                 <?php
-
                 $sql = "select * from tbl_trending";
                 $run = mysqli_query($con, $sql);
                 while ($row = mysqli_fetch_array($run)) {
-
                     $img = $row["img"];
                     $product_name = $row["product_name"];
                     $img = $row["img"];
-
                 ?>
-
                     <li class="nav-item">
                         <div class="wishlist product-item">
                             <a href="">
@@ -61,9 +41,7 @@ include("admin/assets/includes/db.php");
                             <a href="#" class=" nav-link-color"><?php echo $product_name ?></a>
                         </div>
                     </li></a>
-
                 <?php } ?>
-
             </ul>
             <hr>
         </div>
@@ -454,9 +432,7 @@ include("admin/assets/includes/db.php");
             });
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+     <?php include("contents/script.php") ?>
 </body>
 
 </html>

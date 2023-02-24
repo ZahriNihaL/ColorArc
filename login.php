@@ -5,17 +5,14 @@ include("admin/assets/includes/db.php");
 <html lang="en">
 <head>
     <?php include('css/style.php') ?>
-    <title>Color Arc</title>
+    <title>Login</title>
 </head>
-
 <body>
-
     <!-- -------------------------Navbar start-------------------------------- -->
 
     <?php include('contents/nav.php') ?>
 
     <!-- -------------------------Navbar end-------------------------------- -->
-
     <section class="login-page">
         <div class="container">
             <div class="row justify-content-center align-items-center">
@@ -39,9 +36,7 @@ include("admin/assets/includes/db.php");
             </div>
         </div>
     </section>
-
-    <!-- -------------------------footer start-------------------------------- -->
-
+    <!---------------------------footer start---------------------------------->
 <?php
 include("admin/assets/includes/db.php");
 ?>
@@ -100,10 +95,9 @@ include("admin/assets/includes/db.php");
             </div>
         </div>
     </section>
+    <!---------------------------footer end---------------------------------->
 
-    <!-- -------------------------footer end-------------------------------- -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <?php include("contents/script.php") ?>
+    
 </body>
 </html>

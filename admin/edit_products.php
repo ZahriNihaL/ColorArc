@@ -89,11 +89,6 @@ include("assets/includes/db.php");
                             <input type="text" class="form-control" name="total" id="title" value="<?php echo $total?>" placeholder="Enter Any Description" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="title">Rating :</label>
-                            <input type="text" class="form-control" name="rating" id="title" value="<?php echo $rating?>" placeholder="Enter Any Description" required>
-                        </div>
-
-                        <div class="mb-3">
                             <input type="hidden" name="old_img" value="<?php echo $img ?>">
                             <input type="hidden" name="id" value="<?php echo $id ?>">
                             <button type="submit" class="btn btn-sm submit_btn float-end" name="update_products" style="background-color:0d4c91;">SUBMIT</button>

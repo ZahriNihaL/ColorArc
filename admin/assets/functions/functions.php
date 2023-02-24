@@ -517,3 +517,26 @@ if (isset($_POST["change_password"])) {
     header("Location: ../../settings.php?error=Old password is incorrect!");
   }
 }
+
+
+if (isset($_POST["delete_customers"])) {
+  $id = $_POST["id"];
+  $sql = "delete from tbl_customers where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run === TRUE) {
+    header("Location: ../../customers.php?success=customer deleted successfully");
+  } else {
+    header("Location: ../../customers.php?error=failed to delete customer!");
+  }
+}
+
+if (isset($_POST["delete_contacts"])) {
+  $id = $_POST["id"];
+  $sql = "delete from tbl_customer_service where id='$id'";
+  $run = mysqli_query($con, $sql);
+  if ($run === TRUE) {
+    header("Location: ../../contacts.php?success=contact deleted successfully");
+  } else {
+    header("Location: ../../contacts.php?error=failed to delete contact!");
+  }
+}

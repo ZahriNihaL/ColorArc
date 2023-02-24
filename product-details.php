@@ -5,7 +5,7 @@ include("admin/assets/includes/db.php");
 <html lang="en">
 <head>
 <?php include('style.php') ?>
-<title>Cart Page</title>
+<title>Product Details</title>
 </head>
 <body>
     <!-- -------------------------Fixed navbars start-------------------------------- -->
@@ -77,7 +77,6 @@ include("admin/assets/includes/db.php");
                                             <p class="para-color mt-2 ms-2">4.5 Rating and 30 reviews</p>
                                         </div>
                                     </div>
-                                    <!-- <button class="rate-button  btn-sm">Rate Product</button> -->
                                     <a href="review.html"><button class="btn-sm mb-4 button-style buy-now rate-product">Rate Product</button></a>
                                 </div><hr class="margin-hr">
 
@@ -150,8 +149,7 @@ include("admin/assets/includes/db.php");
     
     <!-- -------------------------footer end-------------------------------- -->
 
-    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <?php include("contents/script.php") ?>
+    
 </body>
 </html>

@@ -5,12 +5,12 @@ include("admin/assets/includes/db.php");
 <html lang="en">
 
 <head>
-    <?php
-    session_start();
-    if (!isset($_SESSION["colorarc_loggedin"])) {
-        header("Location: login.php");
-    }
-    ?>
+    <!-- <?php
+    // session_start();
+    // if (!isset($_SESSION["colorarc_loggedin"])) {
+    //     header("Location: login.php");
+    // }
+    ?> -->
     <?php include('css/style.php') ?>
     <title>Color Arc</title>
 </head>
@@ -241,8 +241,9 @@ include("admin/assets/includes/db.php");
     <!-- -------------------------popular products end-------------------------------- -->
 
     <!-- -------------------------services start-------------------------------- -->
+ <!-- -------------------------services start-------------------------------- -->
 
-    <section class="services">
+ <section class="services">
         <div class="container">
             <div class="services-bg">
                 <div class="row">
@@ -251,25 +252,37 @@ include("admin/assets/includes/db.php");
                     </div>
                     <div class="col-lg-6">
                         <div class="row">
-                            <?php
-                            $sql = "select * from tbl_service";
-                            $run = mysqli_query($con, $sql);
-                            while ($row = mysqli_fetch_array($run)) {
-                                $id = $row["id"];
-                                $name = $row["name"];
-                                $img = $row["img"];
-                            ?>
-                                <div class="col-lg-6">
-                                    <img src="admin/assets/images/service/<?php echo $img ?>" alt="services image" class="img-fluid">
-                                    <p class="para-color text-center"><?php echo $name ?></p>
-                                </div>
+                            <div class="col-lg-6">
+                                <img src="images/services/money.png" alt="services image" class="img-fluid">
+                                <p class="para-color text-center">Money Guarantee</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="images/services/payment.png" alt="services image" class="img-fluid">
+                                <p class="para-color text-center">Secure Payment</p>
+                            </div>
                         </div>
+
+                        <div class="row mt-3">
+                            <div class="col-lg-6">
+                                <img src="images/services/fast-delivery.png" alt="services image" class="img-fluid">
+                                <p class="para-color text-center">Fast Delivery</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="images/services/customer-care.png" alt="services image" class="img-fluid">
+                                <p class="para-color text-center">Online Support</p>
+                            </div>
+                        </div>
+
                     </div>
-                <?php } ?>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- -------------------------services end-------------------------------- -->
+
+
+
     <!-- -------------------------services end---------------------------------->
 
     <!-- -------------------------testimonial start----------------------------->
@@ -291,21 +304,21 @@ include("admin/assets/includes/db.php");
                         <div class="carousel-item active">
                             <div class="row ">
                                 <?php
-                                $sql = "select * from tbl_customer";
+                                $sql = "select * from tbl_testimonial";
                                 $run = mysqli_query($con, $sql);
                                 while ($row = mysqli_fetch_array($run)) {
 
                                     $id = $row["id"];
                                     $name = $row["name"];
                                     $designation = $row["designation"];
-                                    $explanation = $row["explanation"];
+                                    $description = $row["description"];
                                     $img = $row["img"];
                                 ?>
                                     <div class="col-lg-6 testimonial-contents">
                                         <div class="reviews d-flex justify-content-center flex-wrap">
                                             <img src="admin/assets/images/customer/<?php echo $img ?>" alt="testimonial image" class="img-fluid">
                                             <div class="client-words">
-                                                <p class="para-color ms-4 mt-3"><i class="fa fa-quote-left para-color me-3"></i><?php echo $explanation ?><i class="fa fa-quote-right para-color ms-3"></i> </p>
+                                                <p class="para-color ms-4 mt-3"><i class="fa fa-quote-left para-color me-3"></i><?php echo $description ?><i class="fa fa-quote-right para-color ms-3"></i> </p>
                                             </div>
                                             <div class="text-center">
                                                 <hr>
@@ -331,8 +344,7 @@ include("admin/assets/includes/db.php");
 
     <!-- -------------------------footer end-------------------------------- -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <?php include("contents/script.php") ?>
 </body>
 
 </html>

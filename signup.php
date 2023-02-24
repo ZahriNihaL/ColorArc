@@ -11,7 +11,7 @@ include("admin/assets/includes/db.php");
     }
     ?>
     <?php include('css/style.php') ?>
-    <title>Color Arc</title>
+    <title>Sign Up</title>
 </head>
 <body>
 
@@ -45,7 +45,7 @@ include("admin/assets/includes/db.php");
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="title">Confirm Password :</label>
-                            <input type="password" class="form-control" id="password" name="confirm_password" placeholder="Retype Password">
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Retype Password">
                         </div>
                         <button type="submit" name="signup" class="btn ">Sign Up</button>
                         <p class="para-color mt-3 text-center">Already have an account ? <a href="login.php">Sign Up Now</a></p>
@@ -112,10 +112,9 @@ include("admin/assets/includes/db.php");
             </div>
         </div>
     </section>
-
     <!-- -------------------------footer end-------------------------------- -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-</body>
+    <?php include("contents/script.php") ?>
+    
+    </body>
 </html>
